@@ -7,11 +7,10 @@ var request = require("request");
 var db = require("./models");
 var exphbs = require('express-handlebars');
 var path = require('path');
-var PORT = 8080;
 var app = express();
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds163480.mlab.com:63480/heroku_z0zq7584";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
@@ -20,6 +19,7 @@ mongoose.connect(MONGODB_URI);
 
 //configure middleware
 //use morgan logger for logging requests
+var PORT = 8080;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
