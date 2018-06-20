@@ -24,8 +24,6 @@ mongoose.connect(MONGODB_URI);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost/newsnotesdb");
-
 
 
 // // Initialize handlebars
