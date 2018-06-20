@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 var cheerio = require("cheerio");
 var request = require("request");
 var db = require("./models");
+var PORT = 8080;
 var exphbs = require('express-handlebars');
 var path = require('path');
 var app = express();
@@ -19,7 +20,7 @@ mongoose.connect(MONGODB_URI);
 
 //configure middleware
 //use morgan logger for logging requests
-var PORT = 8080;
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
